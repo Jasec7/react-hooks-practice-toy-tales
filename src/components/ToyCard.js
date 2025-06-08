@@ -1,17 +1,17 @@
 import React from "react";
-
-function ToyCard() {
+/* ToyCard parameters came from <ToyContainer>  */
+function ToyCard({id, name, image, likes, onDelete, onLikes}) {
   return (
     <div className="card">
-      <h2>{"" /* Toy's Name */}</h2>
+      <h2>{name}</h2>
       <img
-        src={"" /* Toy's Image */}
-        alt={"" /* Toy's Name */}
+        src={image}
+        alt={name}
         className="toy-avatar"
       />
-      <p>{"" /* Toy's Likes */} Likes </p>
-      <button className="like-btn">Like {"<3"}</button>
-      <button className="del-btn">Donate to GoodWill</button>
+      <p>{likes} Likes </p>
+      <button onClick={() => onLikes(id, likes + 1)}className="like-btn">Like {"<3"}</button>
+      <button onClick={() => onDelete(id)} className="del-btn">Donate to GoodWill</button>
     </div>
   );
 }
